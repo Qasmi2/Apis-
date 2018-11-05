@@ -1,0 +1,39 @@
+<div class="container-fluid">
+  <h3>Form ( Post request access )</h3>
+  <form (submit)="onSubmit(isEdit)">
+    <div class="form-group">
+      <label>Name</label>
+      <input type="text" class="form-control" [(ngModel)]="user.name" name="name">
+    </div>
+    <div class="form-group">
+      <label>Email</label>
+      <input type="text" class="form-control" [(ngModel)]="user.email" name="email">
+    </div>
+    <div class="form-group">
+      <label>Phone</label>
+      <input type="text" class="form-control" [(ngModel)]="user.phone" name="phone">
+    </div>
+    <input type="submit" class="btn btn-success" value="Submit">
+  </form>
+  <hr>
+
+  <h3>API ( Get request access ) </h3>
+  <div *ngFor=" let user1 of getuser ">
+    <div class="well">
+      <ul class="list-group">
+
+        <li class="list-group-item">Name: {{user1.name}}</li>
+
+        <li class="list-group-item">Email:{{user1.email}}</li>
+        <li class="list-group-item">Phone: {{user1.phone}}</li>
+
+
+      </ul>
+      <br>
+      <button class="btn btn-primary btn-sm" (click)="onEditClick(user1)">Edit</button>&nbsp;
+      <button class="btn btn-danger btn-sm" (click)="onDeleteClick(user1.id)">Delete</button>
+      <br> <br>
+    </div>
+  </div>
+
+</div>
